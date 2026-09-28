@@ -14,21 +14,6 @@ A simple web application to check how well a resume matches a job description us
 - **Backend**: Python, FastAPI (`app.py`)
 - **AI / NLP**: `sentence-transformers` (`all-MiniLM-L6-v2`) for semantic similarity and PyMuPDF for PDF text extraction.
 
-## Project Structure
-```
-Resume-Analyzer/
-├── static/
-│   ├── index.html       # Web page layout
-│   ├── style.css        # Simple styling
-│   └── app.js           # Frontend logic & API calls
-├── ml_engine/
-│   ├── extractor.py     # Extracts text from PDF files
-│   └── matcher.py       # AI semantic matching & skill analysis
-├── app.py               # Main FastAPI backend server
-├── requirements.txt     # Python dependencies
-└── README.md            # Project documentation
-```
-
 ## How to Run Locally
 
 1. **Clone the repository**:
@@ -46,6 +31,3 @@ Resume-Analyzer/
    ```bash
    python app.py
    ```
-
-4. **Open in your browser**:
-   Go to [http://127.0.0.1:8000](http://127.0.0.1:8000)
