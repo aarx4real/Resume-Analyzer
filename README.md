@@ -1,18 +1,51 @@
-# 🚀 AI Resume Analyzer & Ranker
+# Resume Analyzer
 
-A full-stack NLP application that uses **Semantic Search** to match resumes to job descriptions. Unlike keyword matching, this tool understands the context of experience.
+A simple web application to check how well a resume matches a job description using AI.
 
-## 🧠 AI Engine
-- **Model:** `all-MiniLM-L6-v2` (Sentence-Transformers)
-- **Logic:** Converts text into 384-dimensional dense vectors and calculates **Cosine Similarity**.
-- **Capabilities:** Can match "React Developer" to "Frontend Engineer" based on semantic meaning.
+## Features
+- **Upload Resume**: Upload your resume in PDF format (or paste resume text).
+- **Enter Job Description**: Paste the job description text or upload a job PDF.
+- **Match Score**: Get an overall match percentage score.
+- **Skill Breakdown**: See which skills match and which important skills are missing.
+- **Actionable Tips**: Get practical suggestions to improve your resume for the role.
 
-## 🛠️ Project Structure
-- `/api`: FastAPI backend serving the ML model.
-- `/ml_engine`: The core AI logic for extraction and matching.
-- `/ui`: Streamlit frontend for a clean user experience.
+## Technologies Used
+- **Frontend**: HTML5, CSS3, Vanilla JavaScript (located in `static/`)
+- **Backend**: Python, FastAPI (`app.py`)
+- **AI / NLP**: `sentence-transformers` (`all-MiniLM-L6-v2`) for semantic similarity and PyMuPDF for PDF text extraction.
 
-## 🏃 Running the Project
-1. Install: `pip install -r requirements.txt`
-2. Start API: `python -m uvicorn api.main:app --reload`
-3. Start UI: `streamlit run ui/app.py`
+## Project Structure
+```
+Resume-Analyzer/
+├── static/
+│   ├── index.html       # Web page layout
+│   ├── style.css        # Simple styling
+│   └── app.js           # Frontend logic & API calls
+├── ml_engine/
+│   ├── extractor.py     # Extracts text from PDF files
+│   └── matcher.py       # AI semantic matching & skill analysis
+├── app.py               # Main FastAPI backend server
+├── requirements.txt     # Python dependencies
+└── README.md            # Project documentation
+```
+
+## How to Run Locally
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/aarx4real/Resume-Analyzer.git
+   cd Resume-Analyzer
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Start the server**:
+   ```bash
+   python app.py
+   ```
+
+4. **Open in your browser**:
+   Go to [http://127.0.0.1:8000](http://127.0.0.1:8000)

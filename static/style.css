@@ -1,0 +1,357 @@
+/* Basic Reset & Simple Typography */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f7f9fa;
+    color: #333333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Centered Container */
+.container {
+    max-width: 780px;
+    margin: 0 auto;
+    background: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* Header */
+header {
+    text-align: center;
+    border-bottom: 2px solid #eaeaea;
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+}
+
+header h1 {
+    font-size: 26px;
+    color: #1a365d;
+    margin-bottom: 6px;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #666666;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #2d3748;
+}
+
+.required {
+    color: #e53e3e;
+}
+
+textarea, input[type="text"], input[type="password"], input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    font-family: inherit;
+    border: 1px solid #cbd5e0;
+    border-radius: 4px;
+    background-color: #ffffff;
+}
+
+textarea:focus, input:focus {
+    outline: none;
+    border-color: #3182ce;
+    box-shadow: 0 0 0 2px rgba(49, 130, 206, 0.2);
+}
+
+.help-text {
+    display: block;
+    font-size: 12px;
+    color: #718096;
+    margin-top: 4px;
+}
+
+/* Buttons */
+.form-action {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+button {
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 11px 22px;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.2s ease;
+}
+
+#submit-btn {
+    background-color: #2b6cb0;
+    color: #ffffff;
+    flex: 1;
+}
+
+#submit-btn:hover {
+    background-color: #2c5282;
+}
+
+#submit-btn:disabled {
+    background-color: #a0aec0;
+    cursor: not-allowed;
+}
+
+.secondary-btn {
+    background-color: #edf2f7;
+    color: #4a5568;
+    border: 1px solid #cbd5e0;
+}
+
+.secondary-btn:hover {
+    background-color: #e2e8f0;
+}
+
+/* Loading & Alerts */
+.hidden {
+    display: none !important;
+}
+
+#loading {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #ebf8ff;
+    border: 1px solid #bee3f8;
+    border-radius: 4px;
+    text-align: center;
+    color: #2b6cb0;
+    font-weight: bold;
+}
+
+.alert-box {
+    margin-top: 18px;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.alert-box.error {
+    background-color: #fff5f5;
+    border: 1px solid #feb2b2;
+    color: #c53030;
+}
+
+/* Results Section */
+.results-card {
+    margin-top: 30px;
+    border-top: 2px solid #e2e8f0;
+    padding-top: 20px;
+}
+
+.results-card h2 {
+    font-size: 20px;
+    color: #2d3748;
+    margin-bottom: 16px;
+}
+
+.score-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 16px;
+    margin-bottom: 14px;
+}
+
+.score-box {
+    text-align: center;
+}
+
+.score-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #718096;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.score-value {
+    font-size: 32px;
+    font-weight: bold;
+    color: #2b6cb0;
+}
+
+.verdict-box {
+    text-align: right;
+}
+
+.verdict-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #4a5568;
+}
+
+.verdict-strong {
+    background-color: #38a169;
+}
+
+.verdict-potential {
+    background-color: #dd6b20;
+}
+
+.verdict-low {
+    background-color: #e53e3e;
+}
+
+.engine-badge {
+    margin-top: 6px;
+    font-size: 11px;
+    color: #718096;
+}
+
+/* Progress bar */
+.progress-bar-container {
+    height: 10px;
+    background-color: #edf2f7;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #3182ce;
+    transition: width 0.5s ease-in-out;
+}
+
+.result-section {
+    margin-bottom: 20px;
+}
+
+.result-section h3 {
+    font-size: 16px;
+    color: #2d3748;
+    margin-bottom: 8px;
+}
+
+.summary-box {
+    background: #f8fafc;
+    border-left: 3px solid #3182ce;
+    padding: 10px 14px;
+    font-size: 14px;
+    color: #4a5568;
+    border-radius: 0 4px 4px 0;
+}
+
+/* Skills grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    .score-container {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    .verdict-box {
+        text-align: center;
+    }
+}
+
+.skill-column {
+    background: #fdfdfd;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 14px;
+}
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.tag {
+    font-size: 12px;
+    padding: 4px 9px;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.tag-matched {
+    background-color: #c6f6d5;
+    color: #22543d;
+    border: 1px solid #9ae6b4;
+}
+
+.tag-missing {
+    background-color: #fed7d7;
+    color: #742a2a;
+    border: 1px solid #feb2b2;
+}
+
+.empty-text {
+    font-size: 13px;
+    color: #a0aec0;
+    font-style: italic;
+}
+
+/* Suggestions List */
+.suggestions-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.suggestions-list li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #4a5568;
+}
+
+.suggestions-list li::before {
+    content: "•";
+    position: absolute;
+    left: 8px;
+    color: #3182ce;
+    font-size: 18px;
+    line-height: 1;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 12px;
+    color: #a0aec0;
+    border-top: 1px solid #eaeaea;
+    padding-top: 14px;
+}

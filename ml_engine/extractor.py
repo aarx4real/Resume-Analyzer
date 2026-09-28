@@ -1,39 +1,32 @@
-import fitz  # PyMuPDF
+import pymupdf
 import os
 
-def extract_text_from_pdf(file_path: str) -> str:
+def extract_text_from_pdf(file_input) -> str:
     """
-    Given a path to a PDF, opens it and returns the full text content.
-    Includes validation for file type and content extraction success.
+    Given a file path or file bytes of a PDF, returns the full text content.
     """
-    # 1. Check if the file actually exists
-    if not os.path.exists(file_path):
-        return "Error: File not found on server."
-
-    # 2. Validate file extension
-    if not file_path.lower().endswith('.pdf'):
-        return "Error: The uploaded file is not a PDF."
-
     try:
-        # 3. Open the document
-        doc = fitz.open(file_path)
+        if isinstance(file_input, (bytes, bytearray)):
+            doc = pymupdf.open(stream=file_input, filetype="pdf")
+        elif isinstance(file_input, str):
+            if not os.path.exists(file_input):
+                return "Error: File not found on server."
+            if not file_input.lower().endswith('.pdf'):
+                return "Error: The uploaded file is not a PDF."
+            doc = pymupdf.open(file_input)
+        else:
+            return "Error: Invalid file format."
+
         text = ""
-        
-        # 4. Iterate through pages and extract text
         for page in doc:
-            text += page.get_text()
-        
-        # 5. Handle cases where PDF might be an image/scan (no selectable text)
+            text += page.get_text() + "\n"
+
         if not text.strip():
             return "Error: No text detected. This PDF might be an image or a scan."
 
-        # 6. Basic cleaning: collapse multiple spaces/newlines into single spaces
-        clean_text = " ".join(text.split())
-        
-        return clean_text
+        return " ".join(text.split())
 
     except Exception as e:
-        # Professional projects always catch and log the specific error
         return f"Error processing PDF: {str(e)}"
 
 # This allows you to test this file individually if you run it directly

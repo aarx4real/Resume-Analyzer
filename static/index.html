@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Analyzer & Job Matcher</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Resume Analyzer</h1>
+            <p class="subtitle">Compare your resume against a job description to see your match score and missing skills.</p>
+        </header>
+
+        <!-- Main Form -->
+        <main>
+            <form id="analyze-form">
+                <!-- 1. Resume Input -->
+                <div class="form-group">
+                    <label for="resume-file"><strong>1. Upload Resume (PDF) <span class="required">*</span></strong></label>
+                    <input type="file" id="resume-file" name="resume_file" accept=".pdf">
+                    <small class="help-text">Choose your resume PDF file (or paste text below if you don't have a PDF).</small>
+                    
+                    <textarea 
+                        id="resume-text" 
+                        name="resume_text" 
+                        rows="4" 
+                        placeholder="Optional: Paste resume text here if not uploading a PDF file..." 
+                        style="margin-top: 8px;"></textarea>
+                </div>
+
+                <!-- 2. Job Description Input -->
+                <div class="form-group">
+                    <label for="job-description"><strong>2. Job Description (Text or PDF) <span class="required">*</span></strong></label>
+                    <textarea 
+                        id="job-description" 
+                        name="job_description" 
+                        rows="6" 
+                        placeholder="Paste the job description or role requirements here..."></textarea>
+                    
+                    <div style="margin-top: 8px;">
+                        <label for="job-file" style="font-size: 13px; color: #555;">Or upload Job Description as PDF:</label>
+                        <input type="file" id="job-file" name="job_file" accept=".pdf">
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="form-action">
+                    <button type="submit" id="submit-btn">Analyze Resume</button>
+                    <button type="button" id="sample-btn" class="secondary-btn">Load Sample Data</button>
+                </div>
+            </form>
+
+            <!-- Loading State -->
+            <div id="loading" class="hidden">
+                <p>⏳ Analyzing resume, please wait a moment...</p>
+            </div>
+
+            <!-- Error Message -->
+            <div id="error-message" class="alert-box error hidden"></div>
+
+            <!-- Results Section -->
+            <section id="results" class="results-card hidden">
+                <h2>Analysis Results</h2>
+
+                <div class="score-container">
+                    <div class="score-box">
+                        <span class="score-label">Match Score</span>
+                        <div class="score-value" id="score-value">0%</div>
+                    </div>
+                    <div class="verdict-box">
+                        <span class="score-label">Verdict</span>
+                        <div class="verdict-badge" id="verdict-badge">Unknown</div>
+                    </div>
+                </div>
+
+                <!-- Score Progress Bar -->
+                <div class="progress-bar-container">
+                    <div id="progress-bar" class="progress-bar" style="width: 0%;"></div>
+                </div>
+
+                <!-- Summary -->
+                <div class="result-section">
+                    <h3>Summary</h3>
+                    <p id="summary-text" class="summary-box"></p>
+                </div>
+
+                <!-- Skills Breakdown -->
+                <div class="skills-grid">
+                    <div class="skill-column">
+                        <h3>✅ Matched Skills</h3>
+                        <div id="matched-skills" class="tags-container"></div>
+                    </div>
+                    <div class="skill-column">
+                        <h3>❌ Missing Skills</h3>
+                        <div id="missing-skills" class="tags-container"></div>
+                    </div>
+                </div>
+
+                <!-- Suggestions -->
+                <div class="result-section">
+                    <h3>💡 Recommendations & Action Plan</h3>
+                    <ul id="suggestions-list" class="suggestions-list"></ul>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Simple Resume Analyzer &bull; Built with HTML, CSS, JavaScript & Python</p>
+        </footer>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
